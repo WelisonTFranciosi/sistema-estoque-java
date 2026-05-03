@@ -71,16 +71,17 @@ public class Program {
                     int id = sc.nextInt();
                     Products product = findProductById(products, id);
                     if (product != null) {
-                        System.out.println("Informe o novo proço do produto:");
-                        product.changePrice(sc.nextDouble());
-                        while (product.getPrice() < 0) {
+                        System.out.println("Informe o novo preço do produto:");
+                        double newPrice = sc.nextDouble();
+                        while (newPrice < 0){
                             System.out.println("Preço não pode ser negativo ");
                             System.out.println("preço atual do produto: " + product.getPrice());
-                            System.out.println("Informe um valor até ficar positivo:");
-                            product.changePrice(sc.nextDouble());
-                            System.out.println("Preço do produto alterado com sucesso!");
+                            System.out.println("informe o valor novamente");
+                            newPrice = sc.nextDouble();
                         }
-                        System.out.println("Preço do produto alterado com sucesso!");
+                        product.changePrice(newPrice);
+                        System.out.println("Preço do produto altera4do com sucesso!");
+                        System.out.println("Preço atual: "  + product.getPrice());
                     } else {
                         System.out.println("Produto com ID " + id + " não encontrado.");
                     }
